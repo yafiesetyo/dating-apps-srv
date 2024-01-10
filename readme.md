@@ -51,3 +51,7 @@ Backend service for dating mobile apps. We're using port adapter pattern
 ```go
     go run main.go
 ```
+4. if you want run unit test plus coverage, do command below on terminal
+```go
+   go test -short -coverprofile=./cov.out ./...
+```
