@@ -1,3 +1,4 @@
 .env
 config.yaml
 ./db/migrations
+cov.out
