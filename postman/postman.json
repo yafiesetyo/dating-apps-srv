@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "43057e9d-3d79-4be2-ad53-8391231472a2",
+		"name": "Dating Apps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7171129"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Yafi\",\n    \"gender\": \"male\",\n    \"username\": \"yafie123\",\n    \"password\": \"12345678\",\n    \"image_url\": [],\n    \"dob\": \"1999-08-04\",\n    \"pob\": \"Magetan\",\n    \"religion\": \"islam\",\n    \"description\": \"wokwokwok\",\n    \"hobby\": \"dicari masalah\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"yafie12\",\n    \"password\":\"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Profiles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDQ5NjU0NjEsInN1YiI6MSwidXNlcl9pZCI6NX0.-2NMH-S4g4tB2tmlxQEYCFQFfYCxpLZL5RPley7Fpes",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dating Profiles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDQ5NjU0NjEsInN1YiI6MSwidXNlcl9pZCI6NX0.-2NMH-S4g4tB2tmlxQEYCFQFfYCxpLZL5RPley7Fpes",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/dating",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dating"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Swipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDQ5NjU0NjEsInN1YiI6MSwidXNlcl9pZCI6NX0.-2NMH-S4g4tB2tmlxQEYCFQFfYCxpLZL5RPley7Fpes",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/swipe/:id?action=pass",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"swipe",
+						":id"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "pass"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "18"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDQ5NjU0NjEsInN1YiI6MSwidXNlcl9pZCI6NX0.-2NMH-S4g4tB2tmlxQEYCFQFfYCxpLZL5RPley7Fpes",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/purchase?feature=unlimited_swipe",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"purchase"
+					],
+					"query": [
+						{
+							"key": "feature",
+							"value": "unlimited_swipe"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
