@@ -10,12 +10,12 @@ type Register struct {
 	Gender      string   `json:"gender" validate:"required,oneof=male female"`
 	Username    string   `json:"username" validate:"required,alphanum"`
 	Password    string   `json:"password" validate:"required,gte=8"`
-	ImageUrl    []string `json:"image_url" validate:"required,dive,required,http_url"`
+	ImageUrl    []string `json:"image_url" validate:"dive,http_url"`
 	DOB         string   `json:"dob" validate:"required"`
 	POB         string   `json:"pob" validate:"required"`
 	Religion    string   `json:"religion" validate:"required,oneof=islam kristen katolik hindu buddha konghuchu lainnya"`
-	Description string   `json:"description" validate:"required"`
-	Hobby       string   `json:"hobby" validate:"required"`
+	Description string   `json:"description"`
+	Hobby       string   `json:"hobby"`
 }
 
 func (r Register) ToEntity() entity.User {
