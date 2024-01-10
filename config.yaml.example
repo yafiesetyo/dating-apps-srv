@@ -1,0 +1,14 @@
+port: 
+db:
+  host: 
+  port: 
+  dbname: 
+  user: 
+  password: 
+redis:
+  db:
+  host: 
+  port: 
+jwt:
+  ttl: 
+  secretKey:
