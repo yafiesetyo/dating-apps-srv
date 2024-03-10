@@ -1,0 +1,63 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: dockerfile.api
+    ports:
+      - 8070
+    networks:
+      - srv
+    depends_on:
+      - db
+      - cache
+      - broker
+  consumer:
+    build:
+      context: .
+      dockerfile: dockerfile.consumer
+    networks:
+      - srv
+    depends_on:
+      - db
+      - cache
+      - broker
+  db:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+      - ../db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    environment:
+      - POSTGRES_USER=dating_root
+      - POSTGRES_PASSWORD=pwd1@554#
+      - POSTGRES_DB=dating
+    networks:
+      - srv
+  cache:
+    image: redis:6.2-alpine
+    ports:
+      - '6379:6379'
+    volumes: 
+      - cache:/data
+    networks:
+      - srv
+  broker:
+    image: rabbitmq:3-management-alpine
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    ports:
+        - 5672:5672
+        - 15672:15672
+    networks:
+      - srv
+networks:
+  srv:
+    driver: bridge
+volumes:
+  postgres-db:
+  cache:
+  
+  

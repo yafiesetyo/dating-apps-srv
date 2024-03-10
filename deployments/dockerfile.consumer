@@ -1,0 +1,17 @@
+FROM golang:1.20-alpine
+
+RUN apk add --no-cache git
+
+WORKDIR /app/dating-apps-srv-consumer
+
+COPY ../go.mod .
+COPY ../go.sum .
+
+RUN go mod tidy
+
+COPY ../. .
+
+RUN go build -o ./dating-apps-srv-consumer cmd/consumer/main.go
+
+CMD [ "./dating-apps-srv-consumer" ]
+
